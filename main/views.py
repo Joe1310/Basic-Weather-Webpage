@@ -3,6 +3,8 @@ import json
 # urllib.request to make a request to api
 import urllib.request
 
+apikey = None
+
 def kelvinToCelcius(kelvin):
     return kelvin - 273.15
 
@@ -13,7 +15,7 @@ def index(request):
         try:
             source = urllib.request.urlopen(
                 'http://api.openweathermap.org/data/2.5/weather?q='
-                + city + '&appid=83cb6b5b79f2350dd478a0427955ffbb').read()
+                + city + '&appid=' + apikey).read()
 
             # converting JSON data to a dictionary
             list_of_data = json.loads(source)
